@@ -1,0 +1,249 @@
+@import url('https://fonts.googleapis.com/css?family=Muli&display=swap');
+
+/* In Suitedash the html font size is already being used by the platform, also it seems that the SD font size is not responsive, so wiring the padding and margin of element here to the html font-size would not adjust sizes of margin and padding anyway */
+html {
+  /* see note above root to learn why not use html to set application font-size */
+  /* font-size: 62.5%; */
+  /*this works out to be font-size:10px; on most browsers unless the default 16 px has been changed.*/ }
+
+:root {
+  /*default setting will no longer be changed by the javascript to match user settings/screen size rather the below media queries will*/
+  /* this also defines what 1 rem is because in SD we need a workaround eaxample... calc(6 * var(--FS)); is equal to 6 rem in SD*/
+  --FS: 10px; /*font size example: calc(1.6*var(--MS)) is 1.6 rem in SD (which is 16px)*/
+  --MS: 10px; /*measurement size example: calc(6*var(--MS)) is 6 rem in SD*/
+  --line-border-empty: #e0e0e0;
+  --line-border-fill: #3498db;
+  }
+
+  @media (max-width: 1200px) { /*having control over font size and the measurement size in the agregate*/
+    :root {
+      --FS: 10px; 
+      --MS: 10px; 
+      } }
+  @media (max-width: 1100px) {/*having control over font size and the measurement size in the agregate*/
+    :root {
+      --FS: 10px; 
+      --MS: 10px; 
+      } }
+  @media (max-width: 1000px) {/*having control over font size and the measurement size in the agregate*/
+    :root {
+      --FS: 10px; 
+      --MS: 10px; 
+      } }
+  @media (max-width: 900px) {/*having control over font size and the measurement size in the agregate*/
+    :root {
+      --FS: 10px; 
+      --MS: 10px; 
+      } }
+  @media (max-width: 800px) {/*having control over font size and the measurement size in the agregate*/
+    :root {
+      --FS: 10px; 
+      --MS: 10px; 
+      } }
+  @media (max-width: 700px) {/*having control over font size and the measurement size in the agregate*/
+    :root {
+      --FS: 10px; 
+      --MS: 10px; 
+      } }
+  @media (max-width: 600px) {/*having control over font size and the measurement size in the agregate*/
+    :root {
+      --FS: 10px; 
+      --MS: 10px; 
+      } }
+  @media (max-width: 500px) {/*having control over font size and the measurement size in the agregate*/
+    :root {
+      --FS: 10px; 
+      --MS: 10px; 
+      } }
+  @media (max-width: 400px) {/*having control over font size and the measurement size in the agregate*/
+    :root {
+      --FS: 10px; 
+      --MS: 10px; 
+      } }
+
+/* #weArea is used as body because sd has settings already on body so we call our development area #weArea*/
+#weArea {
+  background-color: #f6f7fb;
+    font-family: 'Muli', serif; /*video 3 @ 4 min*/
+    display: flex;  /*to center everything ...video 3 @ 5 min*/
+   /*  flex-direction: column; */ /*...video 3 @ 5 min*/
+    align-items: center; /* this will center left to right (horizontaly) if flex-direction is set to column ...video 3 @ 5 min*/
+    justify-content: center; /* to center content verticaly...body must have height on it for this to work ...video 3 @ 6 min*/
+    height: 100vh; /* take up 100% of the veiwport height...video 3 @ 6 min*/
+    overflow: hidden;/*set to hidded to prevent scroll bars to be shown by default...video 3 @ 6 min*/
+    margin: 0;  /*...video 3 @ 4 min*/
+    z-index:0;
+}
+
+/* #weArea children because sometimes inheritance isnt enough we need a higher specificity*/
+#weArea * {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0; 
+  z-index:0;}
+
+/*settings to anticipate SD classes that may interfere with WE code*/
+#weArea .we-btn {}
+
+#weArea .we-card {}
+
+#weArea .we-col {}
+
+#weArea .we-composition{}
+
+#weArea .we-container{}
+
+#weArea .we-feature-box{}
+
+#weArea .we-footer{}
+
+#weArea .we-form{}
+
+#weArea .we-header{}
+
+#weArea .we-navigation{}
+
+#weArea .paragraph {font-size: calc(1.6 * var(--FS)); }
+  
+#weArea .paragraph:not(:last-child) {margin-bottom: calc(3 * var(--FS)); }
+
+#weArea .we-popup{}
+
+#weArea .we-radiobox{}
+
+#weArea .we-row{}
+
+#weArea .we-section{}
+
+/* below code to counteract either user agent or SD code */
+#weArea figure{}
+
+#weArea img{}
+
+/* below code to counteract either user agent or SD code */
+#weArea,
+#weArea address,
+#weArea main,
+#weArea section,
+#weArea header,
+#weArea footer,
+#weArea aside,
+#weArea article,
+#weArea pre,
+#weArea div,
+#weArea h1,
+#weArea h2,
+#weArea h3,
+#weArea h4,
+#weArea h5,
+#weArea h6,
+#weArea table,
+#weArea tbody,
+#weArea thead,
+#weArea tfoot,
+#weArea th,
+#weArea tr,
+#weArea td,
+#weArea ul,
+#weArea ol,
+#weArea li,
+#weArea blockquote,
+#weArea p,
+#weArea figure,
+#weArea figcaption {
+  font-family: "Muli", serif;
+  font-weight: 400;
+  font-size: calc(1.6*var(--FS));
+  line-height: 1.7;
+  color: #131313; }
+
+#weArea h1{font-size: calc(3.4*var(--FS));font-weight: bold;line-height: 1;letter-spacing: -1px;margin: .67em 0;}
+#weArea h2{font-size: calc(3*var(--FS));font-weight: bold;line-height: 1.067;letter-spacing: -.8px;margin: .67em 0;}
+#weArea h3{font-size: calc(2.4*var(--FS));font-weight: bold;line-height: 1.083;letter-spacing: -.5px;margin: .67em 0;}
+#weArea h4{font-size: calc(2*var(--FS));font-weight: bold;line-height: 1.1;letter-spacing: -.4px;margin: .67em 0;}
+#weArea h5{font-size: calc(1.8*var(--FS));font-weight: bold;line-height: 1.111;letter-spacing: -.2px;margin: .67em 0;}
+#weArea h6{font-size: calc(1*var(--FS));font-weight: bold;line-height: 1.125;letter-spacing: -.1px;margin: .67em 0;}
+
+
+/*below is the project specific code...Above is the SD-sandbox code*/
+#weArea .we-container {
+  text-align: center;
+  /* z-index: 0; */
+}
+
+#weArea .progress-container {
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+  margin-bottom: 30px;
+  max-width: 100%;
+  width: 350px;
+  /* z-index: 0; */
+}
+
+#weArea .progress-container::before {
+  content: "";
+  background-color: var(--line-border-empty);
+  position: absolute;
+  top :50%;
+  left:0;
+  transform: translateY(-50%);
+  height:4px;
+  width:100%;
+  z-index:-1;
+}
+
+#weArea .progress {
+  background-color: var(--line-border-fill);
+  position: absolute;
+  top :50%;
+  left:0;
+  transform: translateY(-50%);
+  height:4px;
+  width:0;
+  z-index:-1;
+  transition: .4s ease;
+}
+
+#weArea .circle {
+background-color: #fff;
+color: #999;
+border-radius: 50%;
+height: calc(3*var(--MS));
+width: calc(3*var(--MS));
+display: flex;
+align-items: center;
+justify-content: center;
+border: 3px solid var(--line-border-empty);
+transition: .4s ease;
+}
+
+#weArea .circle.active {
+  border-color: var(--line-border-fill);
+}
+
+#weArea .we-btn {
+  background-color: var(--line-border-fill);
+  color:#fff;
+  border:0;
+  border-radius: 6px;
+  cursor: pointer;
+  font-family: inherit;
+  padding: calc(.8*var(--MS)) calc(3*var(--MS));
+  margin: 5px;
+  font-size: calc(1.4*var(--FS));
+  /* backface-visibility: hidden; */
+}
+
+#weArea .we-btn:active{
+  transform: scale(.98);
+}
+
+#weArea .we-btn:focus{
+ outline:0;
+}
+
+#weArea .we-btn:disabled{
+  background-color: var(--line-border-empty);
+  cursor: not-allowed;
+}
