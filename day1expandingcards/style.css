@@ -1,0 +1,233 @@
+/*Udemy course 50 Projects In 50 Days - HTML, CSS & JavaScript*/
+
+@import url('https://fonts.googleapis.com/css?family=Muli&display=swap');
+
+/* In Suitedash the html font size is already being used by the platform, also it seems that the SD font size is not responsive, so wiring the padding and margin of element here to the html font-size would not adjust sizes of margin and padding anyway */
+html {
+  /* see note above root to learn why not use html to set application font-size */
+  /* font-size: 62.5%; */
+  /*this works out to be font-size:10px; on most browsers unless the default 16 px has been changed.*/ }
+
+:root {
+  /*default setting will no longer be changed by the javascript to match user settings/screen size rather the below media queries will*/
+  /* this also defines what 1 rem is because in SD we need a workaround example... calc(6 * var(--FS)); is equal to 6 rem in SD*/
+  --FS: 10px; /*font size example: calc(1.6*var(--MS)) is 1.6 rem in SD (which is 16px)*/
+  --MS: 10px; /*measurement size example: calc(6*var(--MS)) is 6 rem in SD*/
+  --color-green: #338833;
+  --color-lime: #20f242;
+  --color-blue: #1d7ea0;
+  --color-gray: #a9a9a9;
+  }
+
+/* #weArea is used as body because sd has settings already on body so we call our development area #weArea*/
+#weArea {
+  box-sizing: border-box;
+  margin: 0; 
+  Padding: 0;
+  font-family: "Muli", serif; /*video 3 @ 4 min*/
+  display: flex;   /*to center everything ...video 3 @ 5 min*/
+  align-items: center; /* this will center left to right (horizontaly) if flex-direction is set to column ...video 3 @ 5 min*/
+  justify-content: center; /* to center content verticaly...body must have height on it for this to work ...video 3 @ 6 min*/
+  height: 100vh; /* take up 100% of the veiwport height...video 3 @ 6 min*/
+  overflow: hidden;/*set to hidded to prevent scroll bars to be shown by default...video 3 @ 6 min*/
+  margin: 0;  /*...video 3 @ 4 min*/
+  z-index:0;
+  }
+
+/* #weArea children because sometimes inheritance isnt enough we need a higher specificity*/
+#weArea * {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  z-index:0;
+  backface-visibility: hidden;}
+
+/*settings to anticipate SD classes that may interfere with WE code*/
+#weArea .we-btn {}
+
+#weArea .we-card {}
+
+#weArea .we-col {}
+
+#weArea .we-composition{}
+
+#weArea .we-container{}
+
+#weArea .we-feature-box{}
+
+#weArea .we-footer{}
+
+#weArea .we-form{}
+
+#weArea .we-header{}
+
+#weArea .we-navigation{}
+
+#weArea .paragraph {font-size: calc(1.6 * var(--FS)); }
+  
+#weArea .paragraph:not(:last-child) {margin-bottom: calc(3 * var(--MS)); }
+
+#weArea .we-popup{}
+
+#weArea .we-radiobox{}
+
+#weArea .we-row{}
+
+#weArea .we-section{}
+
+/* below code to counteract either user agent or SD code */
+#weArea figure{}
+
+#weArea img{}
+
+/* below code to counteract either user agent or SD code */
+/* SD will rewrite the <i> to a <span> */
+/* Keep close watch perhaps those tags need to be grouped below in the long list of elements or have their own rules applied */
+#weArea i{}
+
+#weArea span{}
+
+/* below code to counteract either user agent or SD code */
+#weArea,
+#weArea address,
+#weArea main,
+#weArea section,
+#weArea header,
+#weArea footer,
+#weArea aside,
+#weArea article,
+#weArea pre,
+#weArea div,
+#weArea h1,
+#weArea h2,
+#weArea h3,
+#weArea h4,
+#weArea h5,
+#weArea h6,
+#weArea table,
+#weArea tbody,
+#weArea thead,
+#weArea tfoot,
+#weArea th,
+#weArea tr,
+#weArea td,
+#weArea ul,
+#weArea ol,
+#weArea li,
+#weArea blockquote,
+#weArea p,
+#weArea figure,
+#weArea figcaption {
+  font-family: "Muli", serif;
+  font-weight: 400;
+  font-size: calc(1.6*var(--FS));/*16px*/
+  line-height: 1.7;
+  color: #131313; }
+
+#weArea h1{font-size: calc(3.4*var(--FS));font-weight: bold;line-height: 1;letter-spacing: -1px;margin: .67em 0;}
+#weArea h2{font-size: calc(3*var(--FS));font-weight: bold;line-height: 1.067;letter-spacing: -.8px;margin: .67em 0;}
+#weArea h3{font-size: calc(2.4*var(--FS));font-weight: bold;line-height: 1.083;letter-spacing: -.5px;margin: .67em 0;}
+#weArea h4{font-size: calc(2*var(--FS));font-weight: bold;line-height: 1.1;letter-spacing: -.4px;margin: .67em 0;}
+#weArea h5{font-size: calc(1.8*var(--FS));font-weight: bold;line-height: 1.111;letter-spacing: -.2px;margin: .67em 0;}
+#weArea h6{font-size: calc(1*var(--FS));font-weight: bold;line-height: 1.125;letter-spacing: -.1px;margin: .67em 0;}
+
+/*below is the project specific code...Above is the SD-sandbox code*/
+
+#weArea .we-container{display: flex;width: 90vw;}
+
+#weArea .panel{
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 80vh;
+  border-radius: 50px;
+  color: #fff;
+  cursor: pointer;
+  flex:.5;
+  margin: 10px;
+  position: relative;
+  transition: flex .7s ease-in;}
+
+#weArea .panel h3{
+  color: #fff;
+  font-size: calc(2.4*var(--FS));
+  position: absolute;
+  bottom: calc(2*var(--MS));
+  left: calc(2*var(--MS));
+  /* margin:0; */
+  opacity: 0;}
+
+#weArea .panel#sunny-beach h3{
+  color: darksalmon;
+}
+
+#weArea .panel#city-winter h3{
+  color: dimgray;
+}
+
+#weArea .panel.active{flex:5;}
+
+#weArea .panel.active h3{opacity: 1; transition: opacity .3s ease-in .4s;}
+
+@media (max-width: 500px) {
+  #weArea .we-container{
+    width:100vw;
+    } 
+    #weArea .panel:nth-of-type(4),
+    #weArea .panel:nth-of-type(5){
+      display: none;
+    }
+  }
+
+/* Media Queries below */
+
+@media (max-width: 1200px) { /*having control over font size and the measurement size in the agregate*/
+  :root {
+    --FS: 10px; 
+    --MS: 10px; 
+    } }
+@media (max-width: 1100px) {/*having control over font size and the measurement size in the agregate*/
+  :root {
+    --FS: 10px; 
+    --MS: 10px; 
+    } }
+@media (max-width: 1000px) {/*having control over font size and the measurement size in the agregate*/
+  :root {
+    --FS: 10px; 
+    --MS: 10px; 
+    } }
+@media (max-width: 900px) {/*having control over font size and the measurement size in the agregate*/
+  :root {
+    --FS: 10px; 
+    --MS: 10px; 
+    } }
+@media (max-width: 800px) {/*having control over font size and the measurement size in the agregate*/
+  :root {
+    --FS: 10px; 
+    --MS: 10px; 
+    } }
+@media (max-width: 700px) {/*having control over font size and the measurement size in the agregate*/
+  :root {
+    --FS: 10px; 
+    --MS: 10px; 
+    } }
+@media (max-width: 600px) {/*having control over font size and the measurement size in the agregate*/
+  :root {
+    --FS: 10px; 
+    --MS: 10px; 
+    } }
+@media (max-width: 500px) {/*having control over font size and the measurement size in the agregate*/
+  :root {
+    --FS: 10px; 
+    --MS: 10px; 
+    } }
+@media (max-width: 400px) {/*having control over font size and the measurement size in the agregate*/
+  :root {
+    --FS: 10px; 
+    --MS: 10px; 
+    } }
+
+
+
+
+
